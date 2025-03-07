@@ -1,0 +1,30 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+export async function getStaticPaths(){
+    return[
+        {
+            params:{id: "aprendiendo-git"},
+            props: {title: "Aprendiendo Git y GitHub"},
+        },
+        {
+            params:{id: "elprogramador"},
+            props: {title: "El programador pragmático"},
+        },
+        {
+            params:{id: "cleacode"},
+            props: {title: "Cleacode"},
+        },
+        {
+            params:{id: "theartcleancode"},
+            props: {title: "The art Cleancode"},
+        },
+    ]
+} 
+
+const {title} = Astro.props;
+---
+<Layout tile={`${title} - Dev books, libros para desarrolladores`}>
+    <h1>{title}</h1>
+</Layout>
